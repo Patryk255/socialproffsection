@@ -1,0 +1,228 @@
+// Colors
+$clr-primary-magenta: hsl(300, 43%, 22%);
+$clr-primary-pink:hsl(333, 80%, 67%);
+$clr-neutral-darkMagenta: hsl(303, 10%, 53%);
+$clr-neutral-lightMagenta: hsl(300, 24%, 96%);
+// Fonts
+$fontSize: 15px;
+$font: 'League Spartan', sans-serif;
+
+*, *::before, *::after{
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+    margin-top: 1em;
+}
+
+img{
+    max-width: 100%;
+    display: block;
+}
+
+html {
+    color-scheme: dark;
+}
+
+body{
+    background-color: $clr-neutral-lightMagenta;
+    font-family: $font;
+    font-size: $fontSize;
+    color: $clr-neutral-darkMagenta;
+    // min-height: 100vh;
+    max-width: 100vw;
+
+}
+
+.container{
+    // max-width:90%;
+    width: 90%;
+    
+    // margin-left: auto;
+    // margin-right: auto;
+    margin-inline: auto;
+    // background-color: burlywood;
+
+    .container-grid{
+        max-width: 100%;
+        display: grid;
+        grid-template-columns: auto;
+        padding: 1rem;
+        // background-color: bisque;
+        main{
+            display: grid;
+            justify-items: center;
+            .left{
+                text-align: center;
+                display: grid;
+                justify-items: center;
+                h1{
+                    color: $clr-primary-magenta;
+                    width: 11ch;
+                    // width: 100%;
+                    font-size: clamp(2.4rem, 10vw - 1rem, 3.2rem)
+                    // font-size: 2.4rem;
+                }
+                p{
+                    
+                    max-width:100%;
+                    // text-align: left;
+                    font-size: 1.15rem;
+                    font-weight: 400;
+                    line-height: 1.3;
+                }
+            }
+            .right{
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                .rating{
+                    position: relative;
+                    max-width:100%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-items: center;
+                    padding: 1rem;
+                    margin: 0;
+                    span{
+                        font-weight: 700;
+                        color: $clr-primary-magenta;
+                    }
+                    .stars{
+                        display: flex;
+                        margin-top: 0;
+                        column-gap: 0.5rem;
+                    }
+                }
+                .rating::before{
+
+                    content: '';
+                    position: absolute;
+                    border-radius: 0.5rem;
+                    max-width: 100%;
+                    inset: 0;
+                    z-index: -1;
+                    background-color: $clr-neutral-darkMagenta;
+                    opacity: 0.1;
+                }
+            }
+
+        }
+    }
+    .cards{
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin-bottom: 3rem;
+        max-width: 100%;
+        .card{
+            background-color: $clr-primary-magenta;
+            border-radius: 0.5rem;
+            max-width: 100%;
+            .cardContent{
+                padding: clamp(1rem, 10vw - 1rem, 1.5rem);
+                margin: 0;
+                display: grid;
+
+                .cardInfo{
+                    display: flex;
+                    gap: 1rem;
+                    margin: 0;
+                    .cardImage{
+                        img{
+                            width: 3rem;
+                            border-radius: 50%;
+                            margin: 0;
+                        }
+                    }
+                    .cardName{
+                        margin: 0;
+                        h3{
+                            margin-top: 1.4rem;
+                            color: $clr-neutral-lightMagenta;
+                        }
+                        p{
+                            margin-top: 0.25rem;
+                            color: $clr-primary-pink;
+                        }
+                    }
+                }
+                .cardDesc{
+                    width: 28ch;
+                    line-height: 1.2;
+                    color: $clr-neutral-lightMagenta;
+                    font-weight: 600;
+                    
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 40em){
+    .container{
+        min-width: 60%;
+        margin-inline: auto;
+        
+        .container-grid{
+            width: 100%;
+            main{
+                grid-template-columns: 1fr 1fr;
+                .left{
+                    width: 100%;
+                    text-align: left;
+                    justify-items: left;
+                    align-items: left;
+                    h1{
+                        margin-top: 0;
+                    }
+                    
+                    p{
+                        width:40ch;
+                    }
+                }
+                
+                .right{
+                    justify-content: left;
+                    margin-top: 0;
+                    
+                    .rating{
+                        flex-direction: row;
+                        justify-content: center;
+                        align-items: center;
+                        width: 90%;
+                        gap:2rem;
+                        
+                        
+                    }
+                }
+                .rating:nth-child(2){
+                    translate: (6%);
+                }
+                .rating:nth-child(3){
+                    margin-left: auto;
+                }
+                
+            }
+            .cards{
+                flex-direction: row;
+                width: 100%;
+                justify-content: space-between;
+                margin-top: 4rem;
+                margin-bottom: 10rem;
+                gap:2rem;
+                .card{
+                    width: 100%;
+                    height: 100%;
+                }
+                .card:nth-child(2){
+                    margin-top: 2rem;
+                }
+                .card:nth-child(3){
+                    margin-top: 3rem;
+                }
+
+            }
+        }
+    }
+}
